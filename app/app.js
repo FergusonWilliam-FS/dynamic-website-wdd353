@@ -6,7 +6,7 @@ app.use(express.urlencoded({extended: true}));
 // all requests will handle json
 app.use(express.json());
 // handle CORS
-app.use((req, res, next)=> {
+app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header(
         'Access-Control-Allow-Headers', 
