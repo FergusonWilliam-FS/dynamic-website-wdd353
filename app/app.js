@@ -1,10 +1,15 @@
 const express = require("express");
+const morgan = require("morgan");
 const app = express();
 const router = require("../routes/routes");
 
 app.use(express.urlencoded({extended: true}));
 // all requests will handle json
 app.use(express.json());
+
+// middleware morgan
+app.use(morgan('dynamic-website-wdd353'));
+
 
 // handle CORS
 
@@ -46,5 +51,6 @@ app.use((error, req, res, next) => {
         },
     });
 });
+
 
 module.exports = app;
