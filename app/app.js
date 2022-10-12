@@ -17,7 +17,6 @@ app.use((req, res, next) => {
         next();
     }
 });
-    // middleware for EJS templating 18:55
 
 app.set('view engine', 'ejs');
 app.engine('ejs', require('ejs').__express);
