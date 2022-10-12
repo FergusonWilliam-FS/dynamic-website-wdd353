@@ -3,14 +3,14 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
     res.render('index', {
-        pagename: 'Home',
+        pagename: 'Home', 
     });
 });
 
 
 router.get('/about', (req, res) => {
     res.render('about', {
-        pagename: 'About',
+        pagename: 'About', 
     });
 });
 
