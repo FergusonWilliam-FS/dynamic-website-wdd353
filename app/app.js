@@ -1,5 +1,4 @@
 const express = require("express");
-const morgan = require("morgan");
 const cors = require("cors");
 const app = express();
 const router = require("../routes/routes");
@@ -7,10 +6,6 @@ const router = require("../routes/routes");
 app.use(express.urlencoded({extended: true}));
 // all requests will handle json
 app.use(express.json());
-
-
-
-
 
 
 // handle CORS
