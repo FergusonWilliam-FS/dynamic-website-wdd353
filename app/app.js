@@ -1,5 +1,6 @@
 const express = require("express");
 const morgan = require("morgan");
+const cors = require("cors");
 const app = express();
 const router = require("../routes/routes");
 
@@ -7,24 +8,25 @@ app.use(express.urlencoded({extended: true}));
 // all requests will handle json
 app.use(express.json());
 
+
+
 // middleware morgan
 app.use(morgan('dynamic-website-wdd353'));
 
 
 // handle CORS
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers','Origin, X-Requested-With, Content-Type, Accept, Authorization');
+    if(req.method === 'OPTIONS') {
+        res.header('Access-Control-Allow-Methods', 'POST, PUT, PATCH, GET, DELETE');
+    }
+    next();
+});
 
-// app.use((req, res, next) => {
-//     res.header('Access-Control-Allow-Origin', '*');
-//     res.header(
-//         'Access-Control-Allow-Headers', 
-//         'Origin, X-Requested-With, Content-Type, Accept, Authorization'
-//     );
-//     if(req.method === 'OPTIONS') {
-//         res.header('Access-Control-Allow-Methods', 'POST, PUT, PATCH, GET, DELETE');
-//         next();
-//     }
-// });
 
+
+// middleware for ejs
 app.set('view engine', 'ejs');
 app.engine('ejs', require('ejs').__express);
 
