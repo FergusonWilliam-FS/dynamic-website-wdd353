@@ -24,8 +24,6 @@ app.use((req, res, next) => {
     next();
 });
 
-
-
 // middleware for ejs
 app.set('view engine', 'ejs');
 app.engine('ejs', require('ejs').__express);
