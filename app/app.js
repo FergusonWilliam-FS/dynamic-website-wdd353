@@ -10,8 +10,7 @@ app.use(express.json());
 
 
 
-// middleware morgan
-app.use(morgan('dynamic-website-wdd353'));
+
 
 
 // handle CORS
